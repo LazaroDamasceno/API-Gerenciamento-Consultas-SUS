@@ -1,4 +1,4 @@
-package com.api.v1.usuariobasico.repositorios;
+package com.api.v1.usuariobasico.domain.repositorios;
 
 import java.util.Optional;
 
