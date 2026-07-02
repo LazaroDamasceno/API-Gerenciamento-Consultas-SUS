@@ -7,12 +7,12 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.api.v1.usuariobasico.domain.valueobjects.CPF;
-import com.api.v1.usuariobasico.domain.valueobjects.Email;
-import com.api.v1.usuariobasico.domain.valueobjects.Endereco;
-import com.api.v1.usuariobasico.domain.valueobjects.Genero;
-import com.api.v1.usuariobasico.domain.valueobjects.NomeCompleto;
-import com.api.v1.usuariobasico.domain.valueobjects.NumeroTelefone;
+import com.api.v1.usuariobasico.valueobjects.CPF;
+import com.api.v1.usuariobasico.valueobjects.Email;
+import com.api.v1.usuariobasico.valueobjects.Endereco;
+import com.api.v1.usuariobasico.valueobjects.Genero;
+import com.api.v1.usuariobasico.valueobjects.NomeCompleto;
+import com.api.v1.usuariobasico.valueobjects.NumeroTelefone;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.api.v1.geral.Helpers;
 import com.api.v1.usuariobasico.UsuarioBasico;
-import com.api.v1.usuariobasico.domain.repositorios.UsuarioBasicoRepositorio;
+import com.api.v1.usuariobasico.UsuarioBasicoRepositorio;
 import com.mongodb.client.result.DeleteResult;
 
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.api.v1.usuariobasico.domain.valueobjects;
+package com.api.v1.usuariobasico.valueobjects;
 
 import java.util.Objects;
 
