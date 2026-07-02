@@ -1,4 +1,4 @@
-package com.api.v1.usuariobasico.valueobjects;
+package com.api.v1.usuariobasico.domain.valueobjects;
 
 import java.util.Objects;
 import java.util.regex.Pattern;
@@ -21,7 +21,5 @@ public record NumeroTelefone(String numeroTelefone) {
 		if (!PADRAO_NUM_TELEFONE.matcher(numFoneLimpo).matches()) {
 			throw new IllegalArgumentException("Formato errado de número de telefone. Deve conter 11 dígitos.");
 		}
-		
-		numeroTelefone = numFoneLimpo;
 	}
 }

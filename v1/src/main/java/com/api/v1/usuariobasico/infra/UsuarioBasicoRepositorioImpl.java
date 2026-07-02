@@ -2,11 +2,16 @@ package com.api.v1.usuariobasico.infra;
 
 import java.util.Optional;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
+import com.api.v1.geral.Helpers;
 import com.api.v1.usuariobasico.UsuarioBasico;
 import com.api.v1.usuariobasico.domain.repositorios.UsuarioBasicoRepositorio;
+import com.mongodb.client.result.DeleteResult;
 
 import lombok.RequiredArgsConstructor;
 
@@ -18,32 +23,38 @@ public class UsuarioBasicoRepositorioImpl implements UsuarioBasicoRepositorio {
 
     @Override
     public UsuarioBasico salvar(UsuarioBasico entidade) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'salvar'");
+        return mongoTemplate.save(entidade);
     }
 
     @Override
-    public void deletar(UsuarioBasico entidade) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deletar'");
+    public long deletar(UsuarioBasico entidade) {
+        DeleteResult deleteResult = mongoTemplate.remove(entidade);
+        return deleteResult.getDeletedCount();
     }
 
     @Override
-    public Optional<UsuarioBasico> findById(String id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+    public Optional<UsuarioBasico> acharPorId(String id) {
+        ObjectId objectId = new ObjectId(id);
+        UsuarioBasico objetoPorId = mongoTemplate.findById(objectId, UsuarioBasico.class);
+        return Optional.ofNullable(objetoPorId);
     }
 
-    @Override
+@Override
     public Optional<UsuarioBasico> acharPorCpf(String cpf) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'acharPorCpf'");
+        Query query = Helpers.getQuery();
+        query.addCriteria(Criteria.where("cpf.cpf").is(cpf)); 
+        
+        UsuarioBasico usuarioPorCpf = mongoTemplate.findOne(query, UsuarioBasico.class);
+        return Optional.ofNullable(usuarioPorCpf);
     }
 
     @Override
     public Optional<UsuarioBasico> acharPorEmail(String email) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'acharPorEmail'");
+        Query query = Helpers.getQuery();
+        query.addCriteria(Criteria.where("email.email").is(email));
+        
+        UsuarioBasico usuarioPorEmail  = mongoTemplate.findOne(query, UsuarioBasico.class);
+        return Optional.ofNullable(usuarioPorEmail);
     }
     
 }

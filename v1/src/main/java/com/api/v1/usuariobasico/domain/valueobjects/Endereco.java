@@ -1,4 +1,4 @@
-package com.api.v1.usuariobasico.valueobjects;
+package com.api.v1.usuariobasico.domain.valueobjects;
 
 import java.util.Objects;
 import java.util.regex.Pattern;
@@ -38,8 +38,5 @@ public record Endereco(
 		if (!PADRAO_DIGITOS_CEP.matcher(cepLimpo).matches()) {
 			throw new IllegalArgumentException("Formato inválido de CEP. Deve conter 8 dígitos.");
 		}
-		
-		cep = cepLimpo;
-		uf = ufTratada;
 	}
 }

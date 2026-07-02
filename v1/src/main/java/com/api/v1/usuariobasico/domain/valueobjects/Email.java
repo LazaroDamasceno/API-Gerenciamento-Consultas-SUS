@@ -1,4 +1,4 @@
-package com.api.v1.usuariobasico.valueobjects;
+package com.api.v1.usuariobasico.domain.valueobjects;
 
 import java.util.Objects;
 import java.util.regex.Pattern;

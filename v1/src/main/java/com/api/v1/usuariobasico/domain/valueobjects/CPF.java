@@ -1,4 +1,4 @@
-package com.api.v1.usuariobasico.valueobjects;
+package com.api.v1.usuariobasico.domain.valueobjects;
 
 import java.util.Objects;
 import java.util.regex.Pattern;
@@ -19,7 +19,5 @@ public record CPF(String cpf) {
 		if (!PADRAO_DIGITOS_CPF.matcher(cpfLimpo).matches()) {
 			throw new IllegalArgumentException("Formato inválido de CPF. Deve conter 11 dígitos.");
 		}
-
-		cpf = cpfLimpo;
 	}
 }
